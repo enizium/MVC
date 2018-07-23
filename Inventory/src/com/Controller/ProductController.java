@@ -115,7 +115,7 @@ public class ProductController extends HttpServlet {
             Product purchased = new Product(name, brand, category, type, convDatee, quantity, price);
             Stock stock =new Stock(name, brand, quantity);
             
-            String uploadDir = "C:\\Eclipse\\WorkSpace\\Inventory";
+            String uploadDir = "E:\\github\\Inventory";
            // String uploadDir = request.getServletContext().getRealPath("/");
             System.out.println("uploadDir = " + uploadDir);
            
