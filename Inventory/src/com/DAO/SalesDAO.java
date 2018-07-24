@@ -59,8 +59,7 @@ public class SalesDAO {
 					} else {
 						return quantityinstock;
 					}
-				}
-				else {
+				} else {
 					System.out.println("cant find product");
 				}
 			} catch (SQLException e) {
@@ -88,7 +87,36 @@ public class SalesDAO {
 	}
 
 	public static ArrayList<Sales> getAllSales() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Sales> al = new ArrayList<>();
+		Connection con = DBConnection.connectDB();
+		PreparedStatement ps = null;
+
+		if (con != null) {
+			String sql = "select * from sales";
+			ResultSet rs;
+			try {
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					Sales sales = new Sales();
+					sales.setId(rs.getInt(1));
+					sales.setName(rs.getString(2));
+					sales.setBrand(rs.getString(3));
+					sales.setType(rs.getString(4));
+					sales.setCategory(rs.getString(5));
+					sales.setDate(rs.getDate(6));
+					sales.setQunatity(rs.getInt(7));
+					sales.setPrice(rs.getDouble(8));
+					sales.setTotalprice(rs.getDouble(9));
+					al.add(sales);
+					
+				}
+			} catch (SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+
+		}
+
+		return al;
 	}
 }

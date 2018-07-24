@@ -89,7 +89,7 @@
                                 </tfoot>
                                 <tbody>
                                 	<% int i=1; %>
-                                    <c:forEach items="${saleslist}" var="supplier" >
+                                    <c:forEach items="${sales}" var="sales" >
                                         <tr>
                                         	<td><%= i %> <% i++; %></td> 
                                             <td>${sales.id}</td>
@@ -111,7 +111,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    <div class="card-footer small text-muted"></div>
                 </div>
 
 

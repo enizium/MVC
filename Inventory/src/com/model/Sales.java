@@ -139,4 +139,12 @@ public class Sales {
 		this.totalprice = totalprice;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "Sales [id=" + id + ", name=" + name + ", brand=" + brand + ", type=" + type + ", category=" + category
+				+ ", date=" + date + ", qunatity=" + qunatity + ", price=" + price + ", totalprice=" + totalprice + "]";
+	}
+
 }
