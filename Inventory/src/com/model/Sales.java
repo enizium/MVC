@@ -19,32 +19,47 @@ public class Sales {
     private String type;
     private String category;
     private Date date;
-
     private int qunatity;
+    private Double price;
+    private Double totalprice;
 
     public Sales() {
     }
 
-    public Sales(String name, String brand, String type, String category, Date date, int qunatity) {
-        this.name = name;
-        this.brand = brand;
-        this.type = type;
-        this.category = category;
-        this.date = date;
-        this.qunatity = qunatity;
-    }
+   
 
-    public Sales(String name, String brand, String type, String category, Date date, int qunatity, int id) {
-        this.name = name;
-        this.brand = brand;
-        this.type = type;
-        this.category = category;
-        this.date = date;
-        this.qunatity = qunatity;
-        this.id = id;
-    }
+    public Sales(int id, String name, String brand, String type, String category, Date date, int qunatity, Double price,
+			Double totalprice) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.type = type;
+		this.category = category;
+		this.date = date;
+		this.qunatity = qunatity;
+		this.price = price;
+		this.totalprice = totalprice;
+	}
 
-    public void setId(int id) {
+
+
+	public Sales(String name, String brand, String type, String category, Date date, int qunatity, Double price,
+			Double totalprice) {
+		super();
+		this.name = name;
+		this.brand = brand;
+		this.type = type;
+		this.category = category;
+		this.date = date;
+		this.qunatity = qunatity;
+		this.price = price;
+		this.totalprice = totalprice;
+	}
+
+
+
+	public void setId(int id) {
         this.id = id;
     }
 
@@ -99,5 +114,29 @@ public class Sales {
     public void setQunatity(int qunatity) {
         this.qunatity = qunatity;
     }
+
+
+
+	public Double getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+
+
+	public Double getTotalprice() {
+		return totalprice;
+	}
+
+
+
+	public void setTotalprice(Double totalprice) {
+		this.totalprice = totalprice;
+	}
 
 }

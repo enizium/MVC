@@ -20,7 +20,7 @@ public class StockDAO {
 
 		if (con != null) {
 
-			String sql = "select * from stock where (?,?)";
+			String sql = "select * from stock where name=? and brand=?";
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setString(1, stock.getName());
@@ -29,11 +29,11 @@ public class StockDAO {
 				while (rs.next()) {
 					oldquantity = rs.getInt("quantity");
 					id = rs.getInt("id");
-					System.out.println("Printing from inside" + id + oldquantity);
+					System.out.println("Printing from inside** " + "id = "+ id + " old qunatity=  "+ oldquantity);
 					status = true;
 				}
-				if (status) {
-					String sql1 = "update stock set quantity where id=?";
+				if (status == true) {
+					String sql1 = "update stock set quantity=? where id=?";
 					PreparedStatement ps1=null;
 					ps1 = con.prepareStatement(sql1);
 					int updatequantity = oldquantity + newquantity;

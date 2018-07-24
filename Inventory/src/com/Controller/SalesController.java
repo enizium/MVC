@@ -1,6 +1,11 @@
 package com.Controller;
 
 import com.DAO.DBConnection;
+import com.DAO.ProductDAO;
+import com.DAO.SalesDAO;
+import com.model.Product;
+import com.model.Sales;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,6 +13,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -38,6 +44,7 @@ public class SalesController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("action").equalsIgnoreCase("sale")) {
+        	
             request.getRequestDispatcher("/admin/sale.jsp").forward(request, response);
         }
     }
@@ -59,13 +66,16 @@ public class SalesController extends HttpServlet {
                 Date salesdate;
                 int quantity = Integer.parseInt(request.getParameter("quantity"));
                 SimpleDateFormat sd = new SimpleDateFormat("yyyy-mm-dd");
-
+                Date convDate = null;
                 try {
-                    Date convDate = new Date(sd.parse(date).getTime());
+                	 convDate = new Date(sd.parse(date).getTime());
                 } catch (ParseException ex) {
                     Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                Double price =Double.parseDouble(request.getParameter("ppu"));
+                Double totalprice=Double.parseDouble(request.getParameter("totalamount"));
+                Sales sales=new Sales(name, brand, type, category , convDate, quantity, price, totalprice);
+                SalesDAO.insert(sales);
                 response.sendRedirect(request.getContextPath() + "/Admin/Sale?action=sale");
 
             }

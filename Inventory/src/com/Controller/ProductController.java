@@ -112,7 +112,6 @@ public class ProductController extends HttpServlet {
             }
             int quantity = Integer.parseInt(request.getParameter("quantity"));
             Double price = Double.parseDouble(request.getParameter("price"));
-            Product purchased = new Product(name, brand, category, type, convDatee, quantity, price);
             Stock stock =new Stock(name, brand, quantity);
             
             String uploadDir = "E:\\github\\Inventory";
@@ -190,7 +189,7 @@ public class ProductController extends HttpServlet {
             boolean uploaded = false;
 
            // String uploadDir = request.getServletContext().getRealPath("/");
-            String uploadDir = "C:\\Eclipse\\WorkSpace\\Inventory";
+            String uploadDir = "E:\\github\\Inventory";
             System.out.println(uploadDir);
             File savePath = new File(uploadDir + File.separator + "photo");
             if (!savePath.exists()) {
