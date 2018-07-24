@@ -46,6 +46,9 @@
 
                         <form  method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/Admin/Sale?action=sale">
                             <div class="form-group">
+                            <div class="form-row">
+                             ${msg}
+                            </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <label for="name">Name</label>
