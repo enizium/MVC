@@ -47,7 +47,7 @@ public class SalesController extends HttpServlet {
 
 			request.getRequestDispatcher("/admin/sale.jsp").forward(request, response);
 		}
-		else if (request.getParameter("action").equalsIgnoreCase("salesstatement")) {
+		else if(request.getParameter("action").equalsIgnoreCase("salesstatement")) {
 			 ArrayList<Sales> al = SalesDAO.getAllSales();
 	            request.setAttribute("sales", al);
 
@@ -91,6 +91,7 @@ public class SalesController extends HttpServlet {
 
 			}
 		}
+	
 	}
 
 	@Override

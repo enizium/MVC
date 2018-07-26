@@ -2,8 +2,6 @@ package com.DAO;
 
 import java.sql.*;
 import java.util.ArrayList;
-
-import com.Controller.sales;
 import com.model.Sales;
 
 public class SalesDAO {

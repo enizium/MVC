@@ -51,7 +51,12 @@ public class StockController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		if (request.getParameter("action").equalsIgnoreCase("stock")) {
+		if (request.getParameter("action").equalsIgnoreCase("fstock")) {
+			ArrayList<Stock> al=StockDAO.getAllStock();
+			request.setAttribute("stock", al);
+            request.getRequestDispatcher("/frontend/stock.jsp").forward(request, response);
+        }
+		else if (request.getParameter("action").equalsIgnoreCase("stock")) {
 			ArrayList<Stock> al=StockDAO.getAllStock();
 			request.setAttribute("stock", al);
             request.getRequestDispatcher("/admin/stock.jsp").forward(request, response);

@@ -50,6 +50,7 @@ public class LoginController extends HttpServlet {
                 System.out.println("Session cleared");
             }
             response.sendRedirect(cp+"/Login?Logout");
+          //  request.getRequestDispatcher("/frontend/login.jsp").forward(request, response);
             
         }
     }
